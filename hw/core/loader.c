@@ -840,7 +840,7 @@ int rom_load_all(void)
                     "(rom %s. free=0x" TARGET_FMT_plx
                     ", addr=0x" TARGET_FMT_plx ")\n",
                     rom->name, addr, rom->addr);
-            return -1;
+            //return -1;
         }
         addr  = rom->addr;
         addr += rom->romsize;
