@@ -343,6 +343,12 @@ typedef struct Stm32Iwdg Stm32Iwdg;
 #define TYPE_STM32_IWDG "stm32_iwdg"
 #define STM32_IWDG(obj) OBJECT_CHECK(Stm32Iwdg, (obj), TYPE_STM32_IWDG)
 
+/* PWR */
+typedef struct Stm32Pwr Stm32Pwr;
+
+#define TYPE_STM32_PWR "stm32_pwr"
+#define STM32_PWR(obj) OBJECT_CHECK(Stm32Pwr, (obj), TYPE_STM32_PWR)
+
 
 /*RTC*/
 

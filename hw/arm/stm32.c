@@ -337,6 +337,10 @@ void stm32_init(
     qdev_prop_set_ptr(iwdg_dev, "stm32_rcc", rcc_dev);
     stm32_init_periph(iwdg_dev, STM32_IWDG, 0x40003000, NULL);
 
+    /* PWR */
+    DeviceState *pwr_dev = qdev_create(NULL, "stm32_pwr");
+    stm32_init_periph(pwr_dev, STM32_PWR, 0x40007000, NULL);
+
 	/* CRC */
 	DeviceState *crc = qdev_create(NULL, "stm32-crc");
 	stm32_init_periph(crc, STM32_CRC, 0x40023000, NULL);
