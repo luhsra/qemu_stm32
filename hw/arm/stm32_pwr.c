@@ -34,6 +34,7 @@
 
 #define R_PWR_CR 0x00
 #define R_PWR_CSR 0x04
+#define R_PWR_QEMU_STATUS 0x08
 
 /* Device State */
 typedef struct Stm32Pwr {
@@ -73,6 +74,8 @@ static void pwr_write(void *arg, hwaddr addr, uint64_t data, unsigned size)
     case R_PWR_CSR:
         s->PWR_CSR = data & 0xFFFFFFFF;
         break;
+    case R_PWR_QEMU_STATUS:
+        printf("\n{{EXIT_STATUS:%#010lx}}\n", data);
     }
 
 }
