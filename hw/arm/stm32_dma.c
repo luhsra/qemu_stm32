@@ -365,6 +365,9 @@ stm32_dma_read(void *arg, hwaddr addr, unsigned int size)
 	}
 
 	if (addr >= R_DMA_MAX) {
+		DPRINTF("invalid read stm32 dma register 0x%02x\n",
+				(unsigned int)addr << 2);
+		return 0;
 		hw_error("invalid read stm32 dma register 0x%02x\n",
 					  (unsigned int)addr << 2);
 		result = 0;

@@ -65,7 +65,6 @@ static void pwr_write(void *arg, hwaddr addr, uint64_t data, unsigned size)
 
     Stm32Pwr *s = arg;
 
-    qemu_system_shutdown_request();
 
     switch(addr) {
     case R_PWR_CR:
@@ -76,6 +75,7 @@ static void pwr_write(void *arg, hwaddr addr, uint64_t data, unsigned size)
         break;
     case R_PWR_QEMU_STATUS:
         printf("\n{{EXIT_STATUS:%#010lx}}\n", data);
+        qemu_system_shutdown_request();
     }
 
 }
